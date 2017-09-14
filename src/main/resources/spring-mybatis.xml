@@ -31,6 +31,7 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     <!-- myBatis文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
   		<property name="dataSource" ref="dataSource" />
+  		<property name="configLocation" value="classpath:mybatis.xml"/>
   		<property name="mapperLocations" value="classpath*:mapper/*.xml" />
   		
   		<!-- 事务管理 -->
@@ -53,7 +54,7 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		<!-- 注入sqlSessionFactory -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 给出需要扫描Dao接口包 -->
-		<property name="basePackage" value="com.wd.dao" />
+		<property name="basePackage" value="com.rs.dao" />
 	</bean>
           
 </beans>
