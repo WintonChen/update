@@ -2,6 +2,6 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<a href="app/updateserver/index.html">首页</a>
+<a href="app/index.html">首页</a>
 </body>
 </html>
