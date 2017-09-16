@@ -8,16 +8,39 @@
 	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 	
 
-	<http auto-config="true">
-		<intercept-url pattern="/app/updateserver**" access="ROLE_USER" />
-	</http>
+	
+	<http pattern="/assets/**" security="none"></http>
+	<http pattern="/dist/**" security="none"></http>
+	<http pattern="/app/css/**" security="none"></http>
+	<http pattern="/app/js/**" security="none"></http>
+	<http pattern="/app/login.html" security="none"></http>
+	<http pattern="/app/login.jsp" security="none"></http>
+	<http pattern="/app/invalidSession.html" security="none"></http>
+	
+	<http use-expressions="false">
+	<intercept-url pattern="/**" access="ROLE_USER"/>
+	<form-login
+		login-page="/app/login.jsp" 
+		default-target-url="/app/index.html"
+		login-processing-url="/login_check"
+		always-use-default-target="true"
+		username-parameter="username"
+		password-parameter="password"
+		/>
+	<logout/>
 
+	</http>
+	
 	<authentication-manager>
 	  <authentication-provider>
-	    <user-service>
-		<user name="yiibai" password="123456" authorities="ROLE_USER" />
-	    </user-service>
+	      <user-service>
+			<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+		  </user-service>
 	  </authentication-provider>
 	</authentication-manager>
+
+	<!-- 密码编码器 -->
+	<beans:bean name="bcryptEncoder"
+	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
 </beans:beans>

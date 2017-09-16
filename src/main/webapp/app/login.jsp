@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"  isELIgnored="false"%> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +36,7 @@
 
     <div class="container">
 
-      <form class="form-signin" action="update/j_spring_security_check" method="post">
+      <form class="form-signin" action="login_check" method="post">
         <h2 class="form-signin-heading">账号登录</h2>
         <label for="inputEmail" class="sr-only">账号</label>
         <input type="text" id="inputEmail" class="form-control" placeholder="账号" name="username" autofocus>
@@ -64,3 +65,4 @@
     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+

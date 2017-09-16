@@ -50,6 +50,13 @@
 	</filter-mapping>
     
     
+    <!-- 并发Session控制, 限制单个用户访问 -->
+    <listener>
+	<listener-class>
+	 org.springframework.security.web.session.HttpSessionEventPublisher
+	</listener-class>
+	</listener>
+    
 	<!-- 解决javax.naming.NameNotFoundException 坑 -->
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
