@@ -20,7 +20,7 @@
 	<http use-expressions="false">
 	<intercept-url pattern="/**" access="ROLE_USER"/>
 	<form-login
-		login-page="/app/login.jsp" 
+		login-page="/app/login.html" 
 		default-target-url="/app/index.html"
 		login-processing-url="/login_check"
 		always-use-default-target="true"
@@ -28,7 +28,10 @@
 		password-parameter="password"
 		/>
 	<logout/>
-
+	<session-management invalid-session-url="/app/invalidSession.html">
+		<concurrency-control max-sessions="1" />
+	</session-management>
+	<csrf disabled="true"/>
 	</http>
 	
 	<authentication-manager>
